@@ -1,3 +1,6 @@
+/**
+ * SYNC Gradle when changing this file
+ */
 object Versions {
     const val flowJvmVersion = "1.4.1"
     const val buildGradleVersion = "4.2.2"
