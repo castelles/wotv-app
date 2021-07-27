@@ -8,6 +8,7 @@ import castelles.com.github.api.utils.Loading
 import castelles.com.github.api.utils.NetworkFetcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
@@ -32,4 +33,6 @@ class CharacterBuildRepositoryImpl(
         val result = dataSource.getBuilds(id)
         emit(result)
     }.flowOn(dispatcher)
+
+
 }

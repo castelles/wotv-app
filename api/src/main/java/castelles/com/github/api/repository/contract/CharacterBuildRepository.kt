@@ -2,7 +2,6 @@ package castelles.com.github.api.repository.contract
 
 import castelles.com.github.api.model.CharacterBuildDto
 import castelles.com.github.api.model.CharacterBuildResponse
-import castelles.com.github.api.model.Waterfall
 import castelles.com.github.api.utils.NetworkFetcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

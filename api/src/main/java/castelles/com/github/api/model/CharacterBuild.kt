@@ -15,7 +15,7 @@ data class CharacterBuildDto(
 data class CharacterBuildResponse(
     val id: Int,
     val name: String,
-    val visionCard: Visioncard,
+    val visionCard: VisionCard,
     val esper: Esper,
     val character: Character,
     val equipments: List<Equipments>
@@ -26,7 +26,9 @@ data class Equipments(
     val name: String,
     val image: String,
     val rarity: String,
-    val tmr: Boolean
+    val tmr: Boolean,
+    val equipmentType: EquipmentType?,
+    val equipmentCategory: EquipmentCategory?
 )
 
 data class Character(
@@ -50,7 +52,18 @@ data class Esper(
     val element: Element
 )
 
-data class Visioncard(
+data class VisionCard(
+    val id: Int,
+    val description: String,
+    val image: String
+)
+
+data class JobResponse(
+    val job: Job,
+    val main: Boolean
+)
+
+data class Job(
     val id: Int,
     val description: String,
     val image: String
