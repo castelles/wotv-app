@@ -32,18 +32,17 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        CoroutineScope(IO).launch {
-            viewModel.getBuilds {
-                when (it) {
-                    is Success -> {
-                        Log.e("Success request", it.data.toString())
-                    }
-                    is Error -> {
-                        Log.e("Error request", it.error.toString())
-                    }
-                    is Loading -> {
-                        Log.e("Loading request", "...")
-                    }
+
+        viewModel.getBuilds {
+            when (it) {
+                is Success -> {
+                    Log.e("Success request", it.result.toString())
+                }
+                is Error<*> -> {
+                    Log.e("Error request", it.error.toThrowable().toString())
+                }
+                is Loading -> {
+                    Log.e("Loading request", "...")
                 }
             }
         }

@@ -1,11 +1,12 @@
 package castelles.com.github.api.datasource.model
 
-import castelles.com.github.api.utils.AuthInterceptor
 import castelles.com.github.api.BuildConfig
-import castelles.com.github.api.utils.Error
-import castelles.com.github.api.utils.NetworkFetcher
-import castelles.com.github.api.utils.Success
+import castelles.com.github.api.utils.*
+import okhttp3.Interceptor
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.Protocol
+import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -31,8 +32,6 @@ open class DataSource(private val baseUrl: String = BuildConfig.BASE_URL) {
             .readTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
 
-        client.addInterceptor(AuthInterceptor(token))
-
         if (BuildConfig.DEBUG) {
             val log = HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
@@ -40,6 +39,8 @@ open class DataSource(private val baseUrl: String = BuildConfig.BASE_URL) {
 
             client.addInterceptor(log)
         }
+
+        client.addInterceptor(AuthInterceptor(token))
 
         retrofit = Retrofit
             .Builder()
@@ -51,22 +52,17 @@ open class DataSource(private val baseUrl: String = BuildConfig.BASE_URL) {
 
     protected fun <T> getResponse(
         response: Response<T>
-    ): NetworkFetcher<T> {
-        val result: NetworkFetcher<T> = try {
+    ): NetworkFetcher<T> = try {
             if (response.isSuccessful) {
                 Success(response.body())
             } else {
-                val error = if (response.errorBody() != null)
-                    response.errorBody().toString()
-                else response.raw().toString()
-
-                Error(Throwable(error))
+//                val error = if (response.errorBody() != null)
+//                    response.errorBody().toString()
+//                else response.raw().toString()
+                Error(ErrorHandler(response))
             }
         } catch (e: Exception) {
-            Error(e.cause ?: Throwable("Unknown cause"))
+            Error<Exception>(ErrorHandler(exception = e))
         }
-
-        return result
-    }
 
 }
