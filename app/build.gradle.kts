@@ -60,6 +60,8 @@ android {
 
 dependencies {
 
+    implementation (project(":api"))
+
     implementation(Libraries.kotlinstdlib)
     implementation(Libraries.coreKtx)
     implementation(Libraries.appCompat)

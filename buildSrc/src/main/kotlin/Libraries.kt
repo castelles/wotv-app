@@ -1,4 +1,5 @@
 object Versions {
+    const val flowJvmVersion = "1.4.1"
     const val buildGradleVersion = "4.2.2"
     const val kotlinVersion = "1.5.10"
     const val coreKtxVersion = "1.6.0"
@@ -63,4 +64,5 @@ object Libraries {
     const val koinViewModel= "org.koin:koin-android-viewmodel:${Versions.koinVersion}"
 
     const val dimensSdp = "com.intuit.sdp:sdp-android:${Versions.dimesLayoutVersion}"
+    const val coroutinesFlow = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${Versions.flowJvmVersion}"
 }

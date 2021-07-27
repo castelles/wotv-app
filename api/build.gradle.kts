@@ -34,15 +34,13 @@ android {
     flavorDimensions(Configs.dimensionEnv)
     productFlavors {
 
-        val STRING = "string"
+        val STRING = "String"
         val BASE_URL = "BASE_URL"
 
         create(Configs.dev) {
             dimension = Configs.dimensionEnv
-            applicationIdSuffix = Configs.devAppSuffix
-            versionNameSuffix = Configs.devVersionNameSuffix
 
-            buildConfigField(STRING, BASE_URL, "\"https://api-cachuapp.herokuapp.com/\"")
+            buildConfigField(STRING, BASE_URL, "\"http://34.125.74.244:8080/\"")
         }
     }
 
@@ -74,4 +72,6 @@ dependencies {
     implementation(Libraries.rxAndroid)
     implementation(Libraries.rxJava)
     implementation(Libraries.rxKotlin)
+    implementation(Libraries.coroutinesFlow)
+
 }
