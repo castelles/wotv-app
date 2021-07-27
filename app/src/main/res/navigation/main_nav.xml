@@ -1,11 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/home"
         android:name="castelles.com.github.wotv_app.ui.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+<!--        <action-->
+<!--            android:id="@+id/builds"-->
+<!--            app:destination="@id/buildsFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/chars"-->
+<!--            app:destination="@id/charsFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/stats"-->
+<!--            app:destination="@id/statsFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/equipments"-->
+<!--            app:destination="@id/equipmentsFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/espers"-->
+<!--            app:destination="@id/espersFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/ranks"-->
+<!--            app:destination="@id/ranksFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/vision_cards"-->
+<!--            app:destination="@id/visionCardsFragment" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/builds"
+        android:name="castelles.com.github.wotv_app.ui.BuildsFragment"
+        android:label="BuildsFragment"
+        tools:layout="@layout/fragment_builds"/>
+    <fragment
+        android:id="@+id/chars"
+        android:name="castelles.com.github.wotv_app.ui.CharsFragment"
+        android:label="CharsFragment"
+        tools:layout="@layout/fragment_chars"/>
+    <fragment
+        android:id="@+id/equipments"
+        android:name="castelles.com.github.wotv_app.ui.EquipmentsFragment"
+        android:label="EquipmentsFragment"
+        tools:layout="@layout/fragment_equipments"/>
+    <fragment
+        android:id="@+id/espers"
+        android:name="castelles.com.github.wotv_app.ui.EspersFragment"
+        android:label="EspersFragment"
+        tools:layout="@layout/fragment_espers"/>
+    <fragment
+        android:id="@+id/ranks"
+        android:name="castelles.com.github.wotv_app.ui.RanksFragment"
+        android:label="RanksFragment"
+        tools:layout="@layout/fragment_ranks"/>
+    <fragment
+        android:id="@+id/stats"
+        android:name="castelles.com.github.wotv_app.ui.StatsFragment"
+        android:label="StatsFragment"
+        tools:layout="@layout/fragment_stats"/>
+    <fragment
+        android:id="@+id/vision_cards"
+        android:name="castelles.com.github.wotv_app.ui.VisionCardsFragment"
+        android:label="VisionCardsFragment"
+        tools:layout="@layout/fragment_vision_cards"/>
 </navigation>

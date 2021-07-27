@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/stats"
+            android:title="Estatísticas" />
+        <item
+            android:id="@+id/builds"
+            android:title="Builds" />
+        <item
+            android:id="@+id/ranks"
+            android:title="Ranks" />
+    </group>
+
+    <item android:title="Listas">
+        <menu>
+            <item
+                android:id="@+id/chars"
+                android:title="Personagens" />
+            <item
+                android:id="@+id/espers"
+                android:title="Espers" />
+            <item
+                android:id="@+id/vision_cards"
+                android:title="Vision Cards" />
+            <item
+                android:id="@+id/equipments"
+                android:title="Equipamentos" />
+        </menu>
+    </item>
+</menu>
