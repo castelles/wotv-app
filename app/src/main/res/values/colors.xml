@@ -18,9 +18,9 @@
     <color name="dark_green">#095419</color>
     <color name="base_red">#AB0F0F</color>
     <color name="transparent">#00FFFFFF</color>
-
     <color name="night_base_yellow">#595129</color>
     <color name="night_brown">#3C3329</color>
     <color name="night_darker_brown">#372512</color>
     <color name="night_grey_brown">#433A32</color>
+    <color name="disabled_gray">#DDC2C2C2</color>
 </resources>

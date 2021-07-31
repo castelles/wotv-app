@@ -13,6 +13,9 @@ import castelles.com.github.wotv_app.databinding.FragmentHomeBinding
 import castelles.com.github.wotv_app.viewmodel.HomeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -32,19 +35,23 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bindViewModel()
+    }
 
-        viewModel.getBuilds {
-            when (it) {
-                is Success -> {
-                    Log.e("Success request", it.result.toString())
+    private fun bindViewModel() {
+        viewModel.apply {
+
+            viewState.onEach {
+                it.handler?.let { fetcher ->
+                    when (fetcher) {
+                        is Loading -> { Log.e("Fetcher Loading", "....") }
+                        is Success -> { Log.e("Fetcher Success", fetcher.result.toString()) }
+                        is Error<*> -> { Log.e("Fetcher error", fetcher.error.toString()) }
+                    }
                 }
-                is Error<*> -> {
-                    Log.e("Error request", it.error.toThrowable().toString())
-                }
-                is Loading -> {
-                    Log.e("Loading request", "...")
-                }
-            }
+            }.launchIn(CoroutineScope(Main))
+
+            getBuilds()
         }
     }
 }

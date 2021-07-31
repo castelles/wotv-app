@@ -11,7 +11,7 @@ interface EquipmentApi {
     @GET("equipments/{id}")
     suspend fun getEquipment(@Path("id") id: Int): Response<Equipments>
 
-    @GET("visioncards/all")
+    @GET("equipments/all")
     suspend fun getEquipments(): Response<List<Equipments>>
 
 }

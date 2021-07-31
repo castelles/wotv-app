@@ -3,7 +3,7 @@ package castelles.com.github.wotv_app.module
 import castelles.com.github.api.datasource.*
 import castelles.com.github.api.repository.*
 import castelles.com.github.api.repository.contract.*
-import castelles.com.github.wotv_app.viewmodel.HomeViewModel
+import castelles.com.github.wotv_app.viewmodel.*
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.bind
 import org.koin.dsl.module
@@ -29,4 +29,8 @@ val repositoryModules = module {
 
 val viewModelModules = module {
     viewModel { HomeViewModel(get()) }
+    viewModel { CharacterViewModel(get()) }
+    viewModel { EsperViewModel(get()) }
+    viewModel { VisionCardViewModel(get()) }
+    viewModel { EquipmentViewModel(get()) }
 }

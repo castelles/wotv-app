@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="castelles.com.github.api.model.VisionCard"/>
+        <variable
+            name="visionCard"
+            type="VisionCard" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/vision_card_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:layout_marginHorizontal="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/imv_vision_card"
+            android:src="@drawable/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:paddingBottom="@dimen/_8sdp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_black"
+            android:textColor="@color/white"
+            android:text="@{visionCard.description}"
+            android:layout_marginHorizontal="@dimen/_3sdp"
+            tools:text="Vision Card"
+            android:textSize="@dimen/_9sdp"
+            app:layout_constraintTop_toBottomOf="@id/imv_vision_card"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

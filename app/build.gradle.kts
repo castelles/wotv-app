@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -41,7 +42,8 @@ android {
 
     productFlavors {
 
-        val STRING: String = "string"
+        val STRING_LOWER: String = "string"
+        val STRING: String = "String"
         val APP_NAME: String = "app_name"
 
         create(Configs.dev) {
@@ -49,7 +51,11 @@ android {
             applicationIdSuffix = Configs.devAppSuffix
             versionNameSuffix = Configs.devVersionNameSuffix
 
-            resValue(STRING, APP_NAME, "WOTV-Calc$versionNameSuffix")
+            buildConfigField(STRING, "IMAGE_URL", "\"https://storage.googleapis.com/wotv/\"")
+            buildConfigField(STRING, "AVATAR_PATH", "\"avatar/\"")
+            buildConfigField(STRING, "RARITY_PATH", "\"rarity/\"")
+            buildConfigField(STRING, "ELEMENT_PATH", "\"element/\"")
+            resValue(STRING_LOWER, APP_NAME, "WOTV-Calc$versionNameSuffix")
         }
     }
 
@@ -85,5 +91,6 @@ dependencies {
     implementation(Libraries.koinViewModel)
 
     implementation(Libraries.dimensSdp)
+    implementation(Libraries.glide)
 
 }

@@ -2,6 +2,7 @@
  * SYNC Gradle when changing this file
  */
 object Versions {
+    const val glideVersion = "4.9.0"
     const val flowJvmVersion = "1.4.1"
     const val buildGradleVersion = "4.2.2"
     const val kotlinVersion = "1.5.10"
@@ -68,4 +69,6 @@ object Libraries {
 
     const val dimensSdp = "com.intuit.sdp:sdp-android:${Versions.dimesLayoutVersion}"
     const val coroutinesFlow = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${Versions.flowJvmVersion}"
+
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
 }
