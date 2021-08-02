@@ -28,10 +28,10 @@ class HomeViewModel(
     val viewState = _viewState.asStateFlow()
 
     fun getBuilds() {
-        viewModelScope.launch {
-            repository.getVisionCards().collect {
-                _viewState.value = _viewState.value.copy(it)
-            }
-        }
+//        viewModelScope.launch {
+//            repository.getVisionCards().collect {
+//                _viewState.value = _viewState.value.copy(it)
+//            }
+//        }
     }
 }

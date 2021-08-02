@@ -109,4 +109,12 @@ class EquipmentsFragment : Fragment(), FragmentListContract<Equipments> {
             }
         }
     }
+
+    override fun enablePageButtons(enable: Boolean) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onSearchClick() {
+        TODO("Not yet implemented")
+    }
 }

@@ -107,4 +107,12 @@ class VisionCardsFragment: Fragment(), FragmentListContract<VisionCard> {
             }
         }
     }
+
+    override fun enablePageButtons(enable: Boolean) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onSearchClick() {
+        TODO("Not yet implemented")
+    }
 }

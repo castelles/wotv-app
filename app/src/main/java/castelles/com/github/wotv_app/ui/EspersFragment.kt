@@ -112,4 +112,12 @@ class EspersFragment: Fragment(), FragmentListContract<Esper> {
             }
         }
     }
+
+    override fun enablePageButtons(enable: Boolean) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onSearchClick() {
+        TODO("Not yet implemented")
+    }
 }

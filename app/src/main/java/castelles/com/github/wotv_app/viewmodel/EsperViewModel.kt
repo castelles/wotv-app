@@ -23,6 +23,10 @@ class EsperViewModel(
         }
     }
 
+    override fun search(value: String) {
+        TODO("Not yet implemented")
+    }
+
     companion object {
         const val MAX_PER_PAGE_ESPER = 14
     }
