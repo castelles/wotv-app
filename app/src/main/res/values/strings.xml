@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name_">wotv-app</string>
+    <string name="str_espers">Espers</string>
+    <string name="str_chars">Characters</string>
+    <string name="str_vision_cards">Vision Cards</string>
+    <string name="str_equipments">Equipments</string>
 </resources>

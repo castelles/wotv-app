@@ -40,7 +40,7 @@ android {
         create(Configs.dev) {
             dimension = Configs.dimensionEnv
 
-            buildConfigField(STRING, BASE_URL, "\"http://34.125.74.244:8080/\"")
+            buildConfigField(STRING, BASE_URL, "\"http://34.95.241.16:8080/\"")
         }
     }
 

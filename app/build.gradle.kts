@@ -53,6 +53,9 @@ android {
 
             buildConfigField(STRING, "IMAGE_URL", "\"https://storage.googleapis.com/wotv/\"")
             buildConfigField(STRING, "AVATAR_PATH", "\"avatar/\"")
+            buildConfigField(STRING, "ESPER_PATH", "\"esper/\"")
+            buildConfigField(STRING, "EQUIPMENT_PATH", "\"equipment/\"")
+            buildConfigField(STRING, "VISION_CARD_PATH", "\"visioncard/\"")
             buildConfigField(STRING, "RARITY_PATH", "\"rarity/\"")
             buildConfigField(STRING, "ELEMENT_PATH", "\"element/\"")
             resValue(STRING_LOWER, APP_NAME, "WOTV-Calc$versionNameSuffix")

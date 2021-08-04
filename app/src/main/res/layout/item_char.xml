@@ -4,36 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="character"
             type="castelles.com.github.api.model.Character" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/_8sdp"
-        android:paddingHorizontal="@dimen/_8sdp"
-        android:layout_marginHorizontal="@dimen/_6sdp"
+        android:layout_marginStart="@dimen/_6sdp"
         android:layout_marginBottom="@dimen/_8sdp"
-        app:cardElevation="@dimen/_8sdp">
+        android:background="@color/transparent"
+        android:paddingHorizontal="@dimen/_8sdp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_image_holder"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/card_stroke"
-            android:paddingHorizontal="@dimen/_8sdp">
+            android:background="@color/base_yellow"
+            android:elevation="@dimen/_24sdp"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imv_char_icon"
-                android:layout_width="@dimen/_58sdp"
-                android:layout_height="@dimen/_48sdp"
-                android:layout_marginVertical="@dimen/_8sdp"
-                tools:src="@drawable/ic_launcher"
                 imageChar="@{character.image}"
-                android:padding="@dimen/_3sdp"
+                android:layout_width="@dimen/_58sdp"
+                android:layout_height="@dimen/_88sdp"
+                android:background="@color/base_yellow"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_launcher" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_4sdp"
+            android:background="@drawable/vision_card_gradient"
+            app:layout_constraintBottom_toBottomOf="@id/cv_image_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cv_image_holder"
+            app:layout_constraintTop_toTopOf="@id/cv_image_holder">
 
             <TextView
                 android:id="@+id/txv_character_name"
@@ -41,91 +57,49 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:fontFamily="@font/roboto_medium"
+                android:paddingHorizontal="@dimen/_6sdp"
                 android:text="@{character.name}"
                 android:textColor="@color/dark_brown"
-                android:textSize="@dimen/_12sdp"
+                android:maxLines="1"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="@dimen/_8sdp"
+                android:autoSizeMaxTextSize="@dimen/_14sdp"
+                android:autoSizeStepGranularity="@dimen/_2sdp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imv_char_icon"
-                app:layout_constraintTop_toTopOf="@id/imv_char_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Carlinhos" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginStart="@dimen/_8sdp"
-                app:layout_constraintTop_toBottomOf="@id/txv_character_name"
-                app:layout_constraintStart_toEndOf="@id/imv_char_icon"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="@dimen/_6sdp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txv_character_name">
 
                 <ImageView
                     imageRarity="@{character.rarity}"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_32sdp"
-                    android:padding="@dimen/_3sdp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:padding="@dimen/_3sdp" />
 
                 <ImageView
                     imageElement="@{character.element.image}"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_32sdp"
-                    android:padding="@dimen/_3sdp"
-                    android:layout_weight="1"/>
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical"-->
-<!--                    android:layout_weight="1">-->
-
-<!--                    <TextView-->
-<!--                        android:text="Raridade"-->
-<!--                        android:textSize="@dimen/_8sdp"-->
-<!--                        android:fontFamily="@font/roboto"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                    <TextView-->
-<!--                        android:textColor="@color/dark_brown"-->
-<!--                        android:text="@{character.rarity}"-->
-<!--                        tools:text="Raridade"-->
-<!--                        android:textSize="@dimen/_10sdp"-->
-<!--                        android:fontFamily="@font/roboto_medium"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical"-->
-<!--                    android:layout_weight="1">-->
-
-<!--                    <TextView-->
-<!--                        android:text="Elemento"-->
-<!--                        android:textSize="@dimen/_8sdp"-->
-<!--                        android:fontFamily="@font/roboto"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                    <TextView-->
-<!--                        android:textColor="@color/dark_brown"-->
-<!--                        android:text="@{character.element.description}"-->
-<!--                        tools:text="Esse elemento tem o poder de afastar os inimigos"-->
-<!--                        android:textSize="@dimen/_10sdp"-->
-<!--                        android:fontFamily="@font/roboto_medium"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                </LinearLayout>-->
+                    android:layout_weight="1"
+                    android:padding="@dimen/_3sdp" />
 
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

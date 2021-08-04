@@ -32,7 +32,8 @@
                 android:layout_width="@dimen/_58sdp"
                 android:layout_height="@dimen/_48sdp"
                 android:layout_marginVertical="@dimen/_8sdp"
-                android:src="@drawable/ic_launcher"
+                tools:src="@drawable/ic_launcher"
+                imageEsper="@{esper.image}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -63,57 +64,17 @@
                 app:layout_constraintStart_toEndOf="@id/imv_char_icon"
                 app:layout_constraintTop_toBottomOf="@id/txv_character_name">
 
-                <LinearLayout
+                <ImageView
+                    imageRarity="@{esper.rarity}"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_weight="1"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto"
-                        android:text="Raridade"
-                        android:textColor="@color/dark_brown"
-                        android:textSize="@dimen/_6sdp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="@{esper.rarity}"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_9sdp"
-                        tools:text="Raridade" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <ImageView
+                    imageElement="@{esper.element != null ? esper.element.image : ``}"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:gravity="end"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto"
-                        android:text="Elemento"
-                        android:textColor="@color/dark_brown"
-                        android:textSize="@dimen/_6sdp" />
-
-                    <TextView
-                        android:gravity="end"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="@{esper.element.description}"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_9sdp"
-                        tools:text="Esse elemento tem o poder de afastar os inimigos" />
-
-                </LinearLayout>
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 

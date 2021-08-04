@@ -39,6 +39,6 @@ class CharacterViewModel(
     }
 
     companion object {
-        const val MAX_PER_PAGE_CHAR = 14
+        const val MAX_PER_PAGE_CHAR = 12
     }
 }

@@ -28,6 +28,6 @@ class VisionCardViewModel(
     }
 
     companion object {
-        const val MAX_PER_PAGE_VISION = 18
+        const val MAX_PER_PAGE_VISION = 12
     }
 }
