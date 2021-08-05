@@ -3,32 +3,32 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/home"
-            android:title="Home" />
+            android:title="@string/str_home" />
         <item
             android:id="@+id/stats"
-            android:title="Estatísticas" />
+            android:title="@string/str_stats" />
         <item
             android:id="@+id/builds"
-            android:title="Builds" />
+            android:title="@string/str_builds" />
         <item
             android:id="@+id/ranks"
-            android:title="Ranks" />
+            android:title="@string/str_ranks" />
     </group>
 
-    <item android:title="Listas">
+    <item android:title="@string/str_list">
         <menu>
             <item
                 android:id="@+id/chars"
-                android:title="Personagens" />
+                android:title="@string/str_characters" />
             <item
                 android:id="@+id/espers"
-                android:title="Espers" />
+                android:title="@string/str_espers" />
             <item
                 android:id="@+id/vision_cards"
-                android:title="Vision Cards" />
+                android:title="@string/str_vision_cards" />
             <item
                 android:id="@+id/equipments"
-                android:title="Equipamentos" />
+                android:title="@string/str_equipments" />
         </menu>
     </item>
 </menu>

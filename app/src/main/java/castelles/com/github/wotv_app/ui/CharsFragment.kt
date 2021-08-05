@@ -46,8 +46,8 @@ class CharsFragment: Fragment(), FragmentListContract<Character> {
     ) = with(FragmentListBinding.inflate(inflater)) {
         lifecycleOwner = viewLifecycleOwner
         binding = this.apply {
-            barTitle = "Personagens"
-            errorMessage = "Personagens não encontrados. Tente novamente mais tarde."
+            barTitle = getString(R.string.str_characters)
+            errorMessage = getString(R.string.str_chars_not_found)
             viewModel = this@CharsFragment.viewModel
         }
         root

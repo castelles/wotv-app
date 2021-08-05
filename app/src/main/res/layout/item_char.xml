@@ -15,15 +15,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_6sdp"
         android:layout_marginBottom="@dimen/_8sdp"
-        android:background="@color/transparent"
+        android:background="@drawable/vision_card_gradient"
         android:paddingHorizontal="@dimen/_8sdp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_image_holder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/base_yellow"
+            android:layout_marginVertical="@dimen/_3sdp"
+            android:background="@color/transparent"
             android:elevation="@dimen/_24sdp"
+            app:cardBackgroundColor="@color/transparent"
             app:cardCornerRadius="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,71 +36,58 @@
                 imageChar="@{character.image}"
                 android:layout_width="@dimen/_58sdp"
                 android:layout_height="@dimen/_88sdp"
-                android:background="@color/base_yellow"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/ic_launcher" />
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/txv_character_name"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="@dimen/_4sdp"
-            android:background="@drawable/vision_card_gradient"
-            app:layout_constraintBottom_toBottomOf="@id/cv_image_holder"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:autoSizeMaxTextSize="@dimen/_14sdp"
+            android:autoSizeMinTextSize="@dimen/_8sdp"
+            android:autoSizeStepGranularity="@dimen/_2sdp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/roboto_medium"
+            android:maxLines="1"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:text="@{character.name}"
+            android:textColor="@color/dark_brown"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/cv_image_holder"
-            app:layout_constraintTop_toTopOf="@id/cv_image_holder">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/str_name_placeholder" />
 
-            <TextView
-                android:id="@+id/txv_character_name"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cv_image_holder"
+            app:layout_constraintTop_toBottomOf="@id/txv_character_name">
+
+            <ImageView
+                imageRarity="@{character.rarity}"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:fontFamily="@font/roboto_medium"
-                android:paddingHorizontal="@dimen/_6sdp"
-                android:text="@{character.name}"
-                android:textColor="@color/dark_brown"
-                android:maxLines="1"
-                android:autoSizeTextType="uniform"
-                android:autoSizeMinTextSize="@dimen/_8sdp"
-                android:autoSizeMaxTextSize="@dimen/_14sdp"
-                android:autoSizeStepGranularity="@dimen/_2sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Carlinhos" />
+                android:layout_height="@dimen/_32sdp"
+                android:layout_weight="1"
+                android:padding="@dimen/_3sdp" />
 
-            <LinearLayout
+            <ImageView
+                imageElement="@{character.element.image}"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:layout_marginBottom="@dimen/_6sdp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txv_character_name">
+                android:layout_height="@dimen/_32sdp"
+                android:layout_weight="1"
+                android:padding="@dimen/_3sdp" />
 
-                <ImageView
-                    imageRarity="@{character.rarity}"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_32sdp"
-                    android:layout_weight="1"
-                    android:padding="@dimen/_3sdp" />
-
-                <ImageView
-                    imageElement="@{character.element.image}"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_32sdp"
-                    android:layout_weight="1"
-                    android:padding="@dimen/_3sdp" />
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

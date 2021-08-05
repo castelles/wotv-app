@@ -38,7 +38,7 @@
             android:text="@{equip.name}"
             android:textColor="@color/dark_brown"
             app:layout_constraintTop_toBottomOf="@id/imv_equip_icon"
-            tools:text="Faquinha" />
+            tools:text="@string/str_name_placeholder" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                         android:layout_weight="1"
                         android:textSize="@dimen/_8sdp"
                         android:fontFamily="@font/nunito_regular"
-                        android:text="Raridade" />
+                        android:text="@string/str_rarity" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -77,7 +77,7 @@
                         android:text="@{equip.rarity}"
                         android:textSize="@dimen/_10sdp"
                         android:textColor="@color/white"
-                        tools:text="Raridade" />
+                        tools:text="@string/str_rarity" />
 
                 </LinearLayout>
 
@@ -94,7 +94,7 @@
                         android:layout_weight="1"
                         android:textSize="@dimen/_8sdp"
                         android:fontFamily="@font/nunito_regular"
-                        android:text="Tipo" />
+                        android:text="@string/str_type" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -104,7 +104,7 @@
                         android:fontFamily="@font/nunito_bold"
                         android:text="@{equip.equipmentType.description}"
                         android:textColor="@color/white"
-                        tools:text="Raridade" />
+                        tools:text="@string/str_rarity" />
 
                 </LinearLayout>
 
@@ -121,7 +121,7 @@
                         android:layout_weight="1"
                         android:textSize="@dimen/_8sdp"
                         android:fontFamily="@font/nunito_regular"
-                        android:text="Categoria" />
+                        android:text="@string/str_category" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -131,7 +131,7 @@
                         android:textSize="@dimen/_10sdp"
                         android:fontFamily="@font/nunito_bold"
                         android:text="@{equip.equipmentCategory.description}"
-                        tools:text="Raridade" />
+                        tools:text="@string/str_rarity" />
 
                 </LinearLayout>
 

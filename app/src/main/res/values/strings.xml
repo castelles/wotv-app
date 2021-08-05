@@ -4,4 +4,21 @@
     <string name="str_chars">Characters</string>
     <string name="str_vision_cards">Vision Cards</string>
     <string name="str_equipments">Equipments</string>
+    <string name="str_previous">Previous</string>
+    <string name="str_next">Next</string>
+    <string name="str_characters">Characters</string>
+    <string name="str_chars_not_found">Characters not found. Try again later.</string>
+    <string name="str_equipments_not_found">Equipments not found. Try again later.</string>
+    <string name="str_espers_not_found">Espers not found. Try again later.</string>
+    <string name="str_vision_cards_not_found">Vision cards not found.Try again later.</string>
+    <string name="str_name_placeholder">Carlinhos</string>
+    <string name="str_rarity">Rarity</string>
+    <string name="str_type">Type</string>
+    <string name="str_category">Category</string>
+    <string name="str_wotv_builder">WOTV Stats</string>
+    <string name="str_home">Home</string>
+    <string name="str_stats">Stats</string>
+    <string name="str_builds">Builds</string>
+    <string name="str_ranks">Ranks</string>
+    <string name="str_list">Listas</string>
 </resources>

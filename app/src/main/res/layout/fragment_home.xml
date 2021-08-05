@@ -23,7 +23,7 @@
                 android:paddingVertical="@dimen/_12sdp"
                 android:textColor="@color/light_yellow"
                 android:gravity="center"
-                android:text="WOTV Builder"
+                android:text="@string/str_wotv_builder"
                 android:textSize="@dimen/_18sdp"
                 android:fontFamily="@font/roboto_black"
                 app:layout_constraintTop_toTopOf="parent"

@@ -11,6 +11,7 @@ import castelles.com.github.api.utils.Error
 import castelles.com.github.api.utils.ErrorHandler
 import castelles.com.github.api.utils.Loading
 import castelles.com.github.api.utils.Success
+import castelles.com.github.wotv_app.R
 import castelles.com.github.wotv_app.databinding.FragmentListBinding
 import castelles.com.github.wotv_app.databinding.FragmentVisionCardsBinding
 import castelles.com.github.wotv_app.ui.adapter.VisionCardAdapter
@@ -33,8 +34,8 @@ class VisionCardsFragment: Fragment(), FragmentListContract<VisionCard> {
         savedInstanceState: Bundle?
     ) = with(FragmentListBinding.inflate(inflater)) {
         binding = this.apply {
-            barTitle = "Vision Cards"
-            errorMessage = "Vision cards não encontrados.\nTente novamente mais tarde."
+            barTitle = getString(R.string.str_vision_cards)
+            errorMessage = getString(R.string.str_vision_cards_not_found)
         }
         root
     }

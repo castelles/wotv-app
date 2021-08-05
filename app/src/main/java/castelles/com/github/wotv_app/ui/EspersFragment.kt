@@ -13,6 +13,7 @@ import castelles.com.github.api.utils.Error
 import castelles.com.github.api.utils.ErrorHandler
 import castelles.com.github.api.utils.Loading
 import castelles.com.github.api.utils.Success
+import castelles.com.github.wotv_app.R
 import castelles.com.github.wotv_app.databinding.FragmentEspersBinding
 import castelles.com.github.wotv_app.databinding.FragmentListBinding
 import castelles.com.github.wotv_app.ui.adapter.EsperAdapter
@@ -38,8 +39,8 @@ class EspersFragment: Fragment(), FragmentListContract<Esper> {
         savedInstanceState: Bundle?
     ) = with(FragmentListBinding.inflate(inflater)) {
         binding = this.apply {
-            barTitle = "Espers"
-            errorMessage = "Espers não encontrados. Tente novamente mais tarde."
+            barTitle = getString(R.string.str_espers)
+            errorMessage = getString(R.string.str_espers_not_found)
         }
         root
     }

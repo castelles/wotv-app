@@ -51,7 +51,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imv_char_icon"
                 app:layout_constraintTop_toTopOf="@id/imv_char_icon"
-                tools:text="Carlinhos" />
+                tools:text="@string/str_name_placeholder" />
 
             <LinearLayout
                 android:layout_width="0dp"
