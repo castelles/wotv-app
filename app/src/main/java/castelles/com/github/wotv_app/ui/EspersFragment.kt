@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +33,7 @@ class EspersFragment: Fragment(), FragmentListContract<Esper> {
     private val viewModel: EsperViewModel by viewModel()
 
     private lateinit var adapter: EsperAdapter
+    private var isSearching = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +43,7 @@ class EspersFragment: Fragment(), FragmentListContract<Esper> {
         binding = this.apply {
             barTitle = getString(R.string.str_espers)
             errorMessage = getString(R.string.str_espers_not_found)
+            viewModel = this@EspersFragment.viewModel
         }
         root
     }
@@ -49,6 +52,7 @@ class EspersFragment: Fragment(), FragmentListContract<Esper> {
         super.onViewCreated(view, savedInstanceState)
         setRecycler()
         bindClicks()
+        addSearch()
         bindViewModel()
     }
 
@@ -61,6 +65,10 @@ class EspersFragment: Fragment(), FragmentListContract<Esper> {
                     is Error<*> -> onError(handler.error)
                 }
             }.launchIn(MainScope())
+
+            searchClick.observe(viewLifecycleOwner) {
+                onSearchClick()
+            }
 
             getEspers()
         }
@@ -87,18 +95,16 @@ class EspersFragment: Fragment(), FragmentListContract<Esper> {
         binding.apply {
             rclList.visibility = View.VISIBLE
             txvErrorRequest.visibility = View.GONE
-            llPageButtons.btnNext.isEnabled = true
-            llPageButtons.btnPrevious.isEnabled = true
         }
+        enablePageButtons()
     }
 
     override fun onError(error: ErrorHandler<out Any?>) {
         binding.apply {
             rclList.visibility = View.GONE
             txvErrorRequest.visibility = View.VISIBLE
-            llPageButtons.btnNext.isEnabled = false
-            llPageButtons.btnPrevious.isEnabled = false
         }
+        enablePageButtons(false)
     }
 
     override fun bindClicks() {
@@ -115,10 +121,51 @@ class EspersFragment: Fragment(), FragmentListContract<Esper> {
     }
 
     override fun enablePageButtons(enable: Boolean) {
-        TODO("Not yet implemented")
+        binding.apply {
+            llPageButtons.btnNext.isEnabled = enable
+            llPageButtons.btnPrevious.isEnabled = enable
+        }
     }
 
     override fun onSearchClick() {
-        TODO("Not yet implemented")
+        binding.apply {
+            if (isSearching) {
+                imvSearch.setImageDrawable(
+                    resources.getDrawable(R.drawable.ic_action_search, null)
+                )
+                isSearching = false
+                ctlSearch.visibility = View.GONE
+                svSearchInput.clearFocus()
+                svSearchInput.onActionViewCollapsed()
+                enablePageButtons()
+                this@EspersFragment.viewModel.search("")
+            } else {
+                imvSearch.setImageDrawable(
+                    resources.getDrawable(R.drawable.ic_action_clear, null)
+                )
+                isSearching = true
+                ctlSearch.visibility = View.VISIBLE
+                svSearchInput.requestFocus()
+                svSearchInput.onActionViewExpanded()
+                enablePageButtons(false)
+            }
+
+        }
+    }
+
+    private fun addSearch() {
+        binding.svSearchInput.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.also {
+                    viewModel.search(newText)
+                    adapter.notifyDataSetChanged()
+                }
+                return true
+            }
+        })
     }
 }

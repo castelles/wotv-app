@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.util.*
 
 class EsperViewModel(
     private val repository: EsperRepository
@@ -24,7 +25,15 @@ class EsperViewModel(
     }
 
     override fun search(value: String) {
-        TODO("Not yet implemented")
+        if (value.isEmpty()) {
+            updateList(getOffset())
+        } else {
+            items.clear()
+            items.addAll(allItems.filter {
+                it.name.lowercase(Locale.getDefault())
+                    .contains(value.lowercase(Locale.getDefault()))
+            })
+        }
     }
 
     companion object {

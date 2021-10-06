@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="castelles.com.github.wotv_app.viewmodel.CharacterViewModel" />
+        <import type="castelles.com.github.wotv_app.viewmodel.contract.BaseViewModel" />
 
         <variable
             name="barTitle"
@@ -17,7 +17,7 @@
 
         <variable
             name="viewModel"
-            type="CharacterViewModel" />
+            type="BaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

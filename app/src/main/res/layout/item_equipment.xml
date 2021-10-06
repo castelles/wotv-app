@@ -16,18 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_6sdp"
-        android:layout_marginBottom="@dimen/_6sdp"
-        android:background="@drawable/equipment_item_gradient">
-
-        <ImageView
-            android:id="@+id/imv_equip_icon"
-            android:layout_width="@dimen/_42sdp"
-            android:layout_height="@dimen/_42sdp"
-            tools:src="@drawable/ic_launcher"
-            imageEquip="@{equip.image}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="@dimen/_6sdp">
 
         <TextView
             android:id="@+id/txv_equip_name"
@@ -37,109 +26,68 @@
             android:gravity="center"
             android:text="@{equip.name}"
             android:textColor="@color/dark_brown"
-            app:layout_constraintTop_toBottomOf="@id/imv_equip_icon"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/str_name_placeholder" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/_3sdp"
-            android:background="@drawable/equipment_item_gradient_reverse"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txv_equip_name">
+            android:background="@drawable/vision_card_gradient"
+            app:layout_constraintTop_toBottomOf="@id/txv_equip_name"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/imv_equip_icon"
+                android:layout_width="@dimen/_72sdp"
+                android:layout_height="@dimen/_92sdp"
+                android:layout_marginHorizontal="@dimen/_4sdp"
+                tools:src="@drawable/ic_launcher"
+                imageEquip="@{equip.image}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                imageRarity="@{equip.rarity}"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_gravity="start"
+                android:padding="@dimen/_3sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imv_equip_icon"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
+                <TextView
+                    android:paddingTop="@dimen/_6sdp"
+                    android:paddingStart="@dimen/_8sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_8sdp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:textSize="@dimen/_8sdp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:textColor="@color/white"
+                    android:text="@string/str_category"/>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="@dimen/_8sdp"
-                        android:fontFamily="@font/nunito_regular"
-                        android:text="@string/str_rarity" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nunito_bold"
-                        android:text="@{equip.rarity}"
-                        android:textSize="@dimen/_10sdp"
-                        android:textColor="@color/white"
-                        tools:text="@string/str_rarity" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
+                    android:paddingStart="@dimen/_8sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_8sdp"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="@dimen/_8sdp"
-                        android:fontFamily="@font/nunito_regular"
-                        android:text="@string/str_type" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="@dimen/_10sdp"
-                        android:fontFamily="@font/nunito_bold"
-                        android:text="@{equip.equipmentType.description}"
-                        android:textColor="@color/white"
-                        tools:text="@string/str_rarity" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_8sdp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="@dimen/_8sdp"
-                        android:fontFamily="@font/nunito_regular"
-                        android:text="@string/str_category" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_10sdp"
-                        android:fontFamily="@font/nunito_bold"
-                        android:text="@{equip.equipmentCategory.description}"
-                        tools:text="@string/str_rarity" />
-
-                </LinearLayout>
+                    android:layout_height="0dp"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textColor="@color/white"
+                    android:text="@{equip.equipmentCategory.description}"
+                    tools:text="@string/str_equipments"/>
 
             </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -33,8 +33,10 @@ fun getRarity(view: ImageView, rarity: String) {
 }
 
 @BindingAdapter("imageElement")
-fun getElement(view: ImageView, element: String) {
-    loadFit(view, BuildConfig.IMAGE_URL + BuildConfig.ELEMENT_PATH + element)
+fun getElement(view: ImageView, element: String?) {
+    element?.let {
+        loadFit(view, BuildConfig.IMAGE_URL + BuildConfig.ELEMENT_PATH + element)
+    }
 }
 
 private fun loadFit(view: ImageView, path: String) {

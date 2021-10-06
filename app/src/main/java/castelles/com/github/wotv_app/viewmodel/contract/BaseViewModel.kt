@@ -29,13 +29,12 @@ abstract class BaseViewModel<T>(
             clear()
             addAll(_items)
             maxPages = allItems.size.div(maxPerPage)
-            page(true, true)
+            page(forward = true, firstPage = true)
         }
     }
 
     override fun page(forward: Boolean, firstPage: Boolean) {
         if (forward) {
-
             if (page < maxPages) {
                 page = if (firstPage) page else page + 1
                 val offset = page.times(maxPerPage)
@@ -61,9 +60,7 @@ abstract class BaseViewModel<T>(
         }
     }
 
-    override fun getOffset(): Int {
-        return page.times(maxPerPage)
-    }
+    override fun getOffset(): Int = page.times(maxPerPage)
 
     fun showSearch() {
         _searchClick.postValue(Unit)
